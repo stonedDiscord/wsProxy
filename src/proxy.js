@@ -50,7 +50,8 @@ Proxy.prototype.clientData = function OnServerData(data) {
 	}
 
 	try {
-		this._tcp.write(data);
+		console.log(data.toString('utf-8'))
+		this._tcp.write(data.toString('utf-8'));
 	}
 	catch(e) {
 
@@ -63,7 +64,8 @@ Proxy.prototype.clientData = function OnServerData(data) {
  * Server -> Client
  */
 Proxy.prototype.serverData = function OnClientData(data) {
-	this._ws.send(data, function(error){
+	console.log(data.toString('utf-8'))
+	this._ws.send(data.toString('utf-8'), function(error){
 		/*
 		if (error !== null) {
 			OnClose();
